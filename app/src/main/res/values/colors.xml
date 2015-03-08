@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Google Card -->
+    <color name="card_divider_gray">#e5e5e5</color>
+
+    <!-- Material Colors -->
+    <color name="colorPrimary">#5677fc</color>
+    <color name="colorPrimaryDark">#455ede</color>
+    <color name="colorAccent">#ff4081</color>
+
+    <!-- Extra Colors -->
+    <color name="material_main_bg">#FAFAFA</color>
+    <color name="material_sub_bg">#E9E9E9</color>
+    <color name="material_sub_bg_text">#757575</color>
+    <color name="material_actionbar_title">@color/primary_text_default_material_dark</color>
+</resources>
