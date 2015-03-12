@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ArabicFont'; /*a name to be used later*/
+    src: url('../fonts/ScheherazadeRegOT.ttf'); /*URL to font*/
+}
+
+* {
+	text-align: right;
+	font-family: 'ArabicFont';	
+}
