@@ -1,0 +1,20 @@
+{
+	"title" : "Sample Book",
+	"author" : "Sample Author",
+	"publisher" : "Sample Publisher",
+	"isbn" : "1234567790",
+	"table_of_content" : [
+			{
+				"chapter_title" : "باب الكلام",
+				"href" : "foreword.html"
+			},
+			{
+				"chapter_title" : "Chapter 1",
+				"href" : "chap01.html"
+			},
+			{
+				"chapter_title" : "Chapter 2",
+				"href" : "chap02.html"
+			}
+	]
+}
