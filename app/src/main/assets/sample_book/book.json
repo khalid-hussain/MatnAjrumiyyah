@@ -5,16 +5,16 @@
 	"isbn" : "1234567790",
 	"table_of_content" : [
 			{
-				"chapter_title" : "باب الكلام",
-				"href" : "foreword.html"
+				"chapter_title" : "أَنْوَاعُ اَلْكَلَامِ",
+				"href" : "kalaam.html"
 			},
 			{
-				"chapter_title" : "Chapter 1",
-				"href" : "chap01.html"
+				"chapter_title" : "بَابُ اَلْإِعْرَابِ",
+				"href" : "iraab.html"
 			},
 			{
-				"chapter_title" : "Chapter 2",
-				"href" : "chap02.html"
+				"chapter_title" : "بَابُ مَعْرِفَةِ عَلَامَاتِ اَلْإِعْرَابِ",
+				"href" : "maarif_alaamat_iraab.html"
 			}
 	]
 }

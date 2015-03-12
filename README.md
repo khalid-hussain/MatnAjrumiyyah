@@ -2,6 +2,8 @@ About the App
 ==============
 This app is about providing [Matn Ajrumiyyah](http://en.wikipedia.org/wiki/Aj%C4%81r%C5%ABm%C4%ABya) in a digital form. There are a couple of other apps on the Play Store for this text but I was not satisfied with their quality and the lack of updates with Google Material Design guidelines. May Allah bless them.
 
+![](https://raw.githubusercontent.com/khalid-hussain/MatnAjrumiyyah/master/screenshot.png)
+
 About the Content
 ==================
 Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided into sections explaining different aspects of Arabic grammar. The text also exists in poem form but this app is about the original text since [kashida](http://en.wikipedia.org/wiki/Kashida) support is quite poor digitally let alone supporting different scree sizes.
@@ -17,8 +19,19 @@ Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided int
 4. (Maybe) Add font size option.
 5. (Maybe) Add a search option.
 
+Libraries
+==========
+[Calligraphy](https://github.com/chrisjenx/Calligraphy)
+
+Credits
+==========
+[AlOloom Salafi Network](http://aloloom.net/vb/showthread.php?t=8833)
+
 To Do
 ======
 1. Type out the text into different chapter files. Organize the files and filenames.
 2. Design the navigation drawer better.
 3. Ensure the WebView is loaded correctly, performance wise.
+4. Check layout on devices with different screen sizes.
+5. App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.
+6. Add the remaining chapters.
