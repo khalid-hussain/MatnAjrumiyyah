@@ -35,7 +35,7 @@ public class Book {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray tableOfContent = jsonObject.getJSONArray("table_of_content");
 
-            chapterList = new ArrayList<Chapter>();
+            chapterList = new ArrayList<>();
 
             for (int i = 0; i < tableOfContent.length(); i++) {
                 JSONObject jsonChapter = (JSONObject) tableOfContent.get(i);

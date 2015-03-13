@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.khalid.ajrumiyyah.Model.Book;
 import com.khalid.ajrumiyyah.Model.Chapter;
@@ -47,8 +47,8 @@ public class ReaderActivity extends ActionBarActivity {
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
-
         setContentView(R.layout.activity_main);
+
         tvSection = (TextView) findViewById(R.id.tvSection);
         tvSection.setText(R.string.kalaam);
         book = new Book();
@@ -57,14 +57,14 @@ public class ReaderActivity extends ActionBarActivity {
         webView = (WebView) findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setDefaultFontSize(30);
-        webView.loadUrl("file:///android_asset/sample_book/kalaam.html");
+        webView.loadUrl("file:///android_asset/sample_book/1.html");
 
+        initView();
 
         if (Build.VERSION.SDK_INT >= 17) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
 
-        initView();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }

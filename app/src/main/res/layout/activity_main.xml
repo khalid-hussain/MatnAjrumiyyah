@@ -30,10 +30,8 @@
         
         <WebView
             android:id="@+id/webView"
-            android:background="@android:color/holo_blue_dark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></WebView>
-
     </LinearLayout>
 
     <!-- navigation drawer -->
@@ -41,12 +39,24 @@
         android:layout_gravity="left|start"
         android:layout_width="match_parent"
         android:fitsSystemWindows="true"
-        android:background="@android:color/white"
+        android:background="@color/colorPrimaryDark"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/material_main_bg"
+            android:text="@string/table_of_contents"
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            fontPath="fonts/KacstOne-Bold.ttf"
+            android:textSize="20sp"
+            />
 
         <ListView
             android:id="@+id/left_drawer"
+            android:background="@color/material_main_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>
     </LinearLayout>
