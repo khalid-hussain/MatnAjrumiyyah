@@ -22,13 +22,13 @@ Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided int
 
 Libraries
 ==========
-Android Support Library
-[Calligraphy](https://github.com/chrisjenx/Calligraphy)
+- Android Support Library
+- [Calligraphy](https://github.com/chrisjenx/Calligraphy)
 
 Credits
 ==========
-[AlOloom Salafi Network](http://aloloom.net/vb/showthread.php?t=8833)
-Hussaini Zulkifli([GitHub](https://github.com/the1375),[Twitter](https://twitter.com/HussainiZul))
+- [AlOloom Salafi Network](http://aloloom.net/vb/showthread.php?t=8833)
+- Hussaini Zulkifli([GitHub](https://github.com/the1375),[Twitter](https://twitter.com/HussainiZul))
 
 To Do
 ======
