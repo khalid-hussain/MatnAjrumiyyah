@@ -32,9 +32,9 @@ Credits
 
 To Do
 ======
-1. Type out the text into different chapter files. Organize the files and filenames.
+1. ~~Type out the text into different chapter files. Organize the files and filenames.~~
 2. Design the navigation drawer better.
 3. Ensure the WebView is loaded correctly, performance wise.
 4. Check layout on devices with different screen sizes.
-5. App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.
-6. Add the remaining chapters.
+5. ~~App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.~~
+6. ~~Add the remaining chapters.~~

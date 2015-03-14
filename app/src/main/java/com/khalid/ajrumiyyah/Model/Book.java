@@ -1,4 +1,4 @@
-package com.khalid.ajrumiyyah.Model;
+package com.khalid.ajrumiyyah.model;
 
 import android.content.Context;
 

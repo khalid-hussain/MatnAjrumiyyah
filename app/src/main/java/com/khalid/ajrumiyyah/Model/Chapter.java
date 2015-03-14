@@ -1,4 +1,4 @@
-package com.khalid.ajrumiyyah.Model;
+package com.khalid.ajrumiyyah.model;
 
 /**
  * Created by theB75 on 09-Mar-15.
