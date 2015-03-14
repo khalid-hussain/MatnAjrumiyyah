@@ -13,6 +13,7 @@
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <TextView
+        android:id="@+id/action_bar_title"
         android:textSize="20sp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"

@@ -29,7 +29,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class ReaderActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
-    private TextView tvSection;
+    private TextView tvActionBarTitle;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ListView leftDrawerList;
@@ -48,11 +48,10 @@ public class ReaderActivity extends ActionBarActivity {
         );
         setContentView(R.layout.activity_main);
 
-        tvSection = (TextView) findViewById(R.id.tvSection);
-        tvSection.setText(R.string.kalaam);
         book = new Book();
         book.setBook(this, "sample_book");
         leftSliderData = book.getChapterList();
+        tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         webView = (WebView) findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setDefaultFontSize(30);
@@ -82,7 +81,7 @@ public class ReaderActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String href = book.getChapterList().get(position).getHref();
                 webView.loadUrl("file:///android_asset/sample_book/" + href);
-                tvSection.setText(book.getChapterList().get(position).getChapterTitle());
+                tvActionBarTitle.setText(book.getChapterList().get(position).getChapterTitle());
                 drawerLayout.closeDrawers();
             }
         });
