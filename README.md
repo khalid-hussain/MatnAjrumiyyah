@@ -7,7 +7,7 @@ This app is about providing [Matn Ajrumiyyah](http://en.wikipedia.org/wiki/Aj%C4
 
 About the Content
 ==================
-Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided into sections explaining different aspects of Arabic grammar. The text also exists in poem form but this app is about the original text since [kashida](http://en.wikipedia.org/wiki/Kashida) support is quite poor digitally let alone supporting different scree sizes.
+Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided into sections explaining different aspects of Arabic grammar. The text also exists in poem form but this app is about the original text since [kashida](http://en.wikipedia.org/wiki/Kashida) support is quite poor digitally let alone supporting different screen sizes.
 
 (To Be)Features
 ==================

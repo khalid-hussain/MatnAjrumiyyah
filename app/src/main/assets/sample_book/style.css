@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ArabicFont'; /*a name to be used later*/
-    src: url('../fonts/ScheherazadeRegOT.ttf'); /*URL to font*/
+    src: url('file:///android_asset/fonts/ScheherazadeRegOT.ttf'); /*URL to font*/
 }
 
 * {
