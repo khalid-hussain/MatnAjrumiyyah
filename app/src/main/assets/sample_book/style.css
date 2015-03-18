@@ -1,9 +1,18 @@
 @font-face {
-    font-family: 'ArabicFont'; /*a name to be used later*/
-    src: url('file:///android_asset/fonts/ScheherazadeRegOT.ttf'); /*URL to font*/
+	font-family: 'ArabicFont'; /*a name to be used later*/	
+	src: url('file:///android_asset/fonts/ScheherazadeRegOT.ttf'); /*URL to font*/
 }
 
 * {
 	text-align: right;
-	font-family: 'ArabicFont';	
+	font-family: 'ArabicFont';
 }
+
+body {
+	padding: 5px auto 5px auto;
+}
+
+.colorMain{color:#00F;}
+.colorSubMain{color:#000080;}
+.colorSubSubMain{color:;}
+.colorSubSubSubMain{color:#993300;}
