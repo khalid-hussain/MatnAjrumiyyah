@@ -28,7 +28,7 @@ Libraries
 Credits
 ==========
 - [AlOloom Salafi Network](http://aloloom.net/vb/showthread.php?t=8833)
-- Hussaini Zulkifli([GitHub](https://github.com/the1375),[Twitter](https://twitter.com/HussainiZul))
+- Hussaini Zulkifli ([GitHub](https://github.com/the1375),[Twitter](https://twitter.com/HussainiZul))
 
 To Do
 ======
