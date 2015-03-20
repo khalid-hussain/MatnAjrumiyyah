@@ -45,72 +45,68 @@
 				"href" : "10.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْعَوَامِلِ اَلدَّاخِلَةِ عَلَى اَلْمُبْتَدَأِ وَالْخَبَرِ",
+				"chapter_title" : "بَابُ اَلنَّعْتِ",
 				"href" : "11.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلنَّعْتِ",
+				"chapter_title" : "بَابُ اَلْعَطْفِ",
 				"href" : "12.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْعَطْفِ",
+				"chapter_title" : "بَابُ اَلتَّوْكِيدِ",
 				"href" : "13.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلتَّوْكِيدِ",
+				"chapter_title" : "بَابُ اَلْبَدَلِ",
 				"href" : "14.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْبَدَلِ",
+				"chapter_title" : "بَابُ مَنْصُوبَاتِ اَلْأَسْمَاءِ",
 				"href" : "15.html"
 			},
 			{
-				"chapter_title" : "بَابُ مَنْصُوبَاتِ اَلْأَسْمَاءِ",
+				"chapter_title" : "بَابُ اَلْمَفْعُولِ بِهِ",
 				"href" : "16.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْمَفْعُولِ بِهِ",
+				"chapter_title" : "بَابُ اَلْمَصْدَرِ",
 				"href" : "17.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْمَصْدَرِ",
+				"chapter_title" : "بَابُ ظَرْفِ اَلزَّمَانِ وَظَرْفِ اَلْمَكَانِ",
 				"href" : "18.html"
 			},
 			{
-				"chapter_title" : "بَابُ ظَرْفِ اَلزَّمَانِ وَظَرْفِ اَلْمَكَانِ",
+				"chapter_title" : "بَابُ اَلْحَالِ",
 				"href" : "19.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْحَالِ",
+				"chapter_title" : "بَابُ اَلتَّمْيِيزِ",
 				"href" : "20.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلتَّمْيِيزِ",
+				"chapter_title" : "بَابُ اَلِاسْتِثْنَاءِ",
 				"href" : "21.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلِاسْتِثْنَاءِ",
+				"chapter_title" : "بَابُ لَا",
 				"href" : "22.html"
 			},
 			{
-				"chapter_title" : "بَابُ لَا",
+				"chapter_title" : "بَابُ اَلْمُنَادَى",
 				"href" : "23.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْمُنَادَى",
+				"chapter_title" : "بَابُ اَلْمَفْعُولِ لِأَجْلِهِ",
 				"href" : "24.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْمَفْعُولِ لِأَجْلِهِ",
+				"chapter_title" : "بَابُ اَلْمَفْعُولِ مَعَهُ",
 				"href" : "25.html"
 			},
 			{
-				"chapter_title" : "بَابُ اَلْمَفْعُولِ مَعَهُ",
-				"href" : "26.html"
-			},
-			{
 				"chapter_title" : "بَابُ اَلْمَخْفُوضَاتِ مِنْ اَلْأَسْمَاءِ",
-				"href" : "27.html"
+				"href" : "26.html"
 			}
 	]
 }
