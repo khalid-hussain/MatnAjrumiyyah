@@ -12,6 +12,11 @@ body {
 	padding: 5px auto 5px auto;
 }
 
+.cover>h1,h2{	
+	text-align: center;
+	font-weight: normal;
+}
+
 .colorMain{color:#F00;}
 .colorSecondary{color:#9F0;}
 .colorTertiary{color: #0DD5FC;}

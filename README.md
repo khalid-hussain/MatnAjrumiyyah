@@ -39,3 +39,6 @@ To Do
 4. Check layout on devices with different screen sizes.
 5. ~~App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.~~
 6. ~~Add the remaining chapters.~~
+7. Choose better highlight colors for key points in the text.
+8. Ensure the custom WebView font can be seen on all phones (Samsung, Sony, etc..) and not only stock or close to stock roms (e.g. Cyanogenmod).
+9. Add section highlights to all chapters.

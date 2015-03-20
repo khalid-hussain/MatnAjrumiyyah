@@ -22,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.khalid.ajrumiyyah.adapter.ChapterLoader;
-import com.khalid.ajrumiyyah.model.Book;
 import com.khalid.ajrumiyyah.model.Chapter;
 
 import java.util.List;
@@ -40,7 +39,6 @@ public class ReaderActivity extends ActionBarActivity
     private ArrayAdapter<Chapter> mAdapter;
     private List<Chapter> leftSliderData;
     private WebView mWebView;
-    private Book mBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +60,7 @@ public class ReaderActivity extends ActionBarActivity
         mWebView = (WebView) findViewById(R.id.webView);
         mWebView.setWebViewClient(new WebViewClient());
         mWebView.getSettings().setDefaultFontSize(30);
-        mWebView.loadUrl("file:///android_asset/sample_book/1.html");
+        mWebView.loadUrl("file:///android_asset/sample_book/cover.html");
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
