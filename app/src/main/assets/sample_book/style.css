@@ -12,7 +12,6 @@ body {
 	padding: 5px auto 5px auto;
 }
 
-.colorMain{color:#00F;}
-.colorSubMain{color:#000080;}
-.colorSubSubMain{color:;}
-.colorSubSubSubMain{color:#993300;}
+.colorMain{color:#F00;}
+.colorSecondary{color:#9F0;}
+.colorTertiary{color: #0DD5FC;}
