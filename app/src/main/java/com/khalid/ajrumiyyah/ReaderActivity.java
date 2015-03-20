@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.Loader;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,12 +19,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.khalid.ajrumiyyah.adapter.ChapterLoader;
 import com.khalid.ajrumiyyah.model.Book;
 import com.khalid.ajrumiyyah.model.Chapter;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -32,7 +32,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ReaderActivity extends ActionBarActivity
         implements LoaderManager.LoaderCallbacks<List<Chapter>> {
-    public static final int LOADER_ID = "chapter_loader".hashCode();
     private Toolbar toolbar;
     private TextView tvActionBarTitle;
     private DrawerLayout drawerLayout;
@@ -53,21 +52,18 @@ public class ReaderActivity extends ActionBarActivity
         );
         setContentView(R.layout.activity_main);
 
-        mBook = new Book();
-        mBook.setBook(this, "sample_book");
-        leftSliderData = mBook.getChapterList();
-        tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
-        mWebView = (WebView) findViewById(R.id.webView);
-        mWebView.setWebViewClient(new WebViewClient());
-        mWebView.getSettings().setDefaultFontSize(30);
-        mWebView.loadUrl("file:///android_asset/sample_book/1.html");
-
         initView();
         initDrawer();
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
     private void initView() {
+        tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
+        mWebView = (WebView) findViewById(R.id.webView);
+        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.getSettings().setDefaultFontSize(30);
+        mWebView.loadUrl("file:///android_asset/sample_book/1.html");
+
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
@@ -78,22 +74,10 @@ public class ReaderActivity extends ActionBarActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-
-        mListView.setAdapter(mAdapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String href = mBook.getChapterList().get(position).getHref();
-                mWebView.loadUrl("file:///android_asset/sample_book/" + href);
-                tvActionBarTitle.setText(mBook.getChapterList().get(position).getChapterTitle());
-                drawerLayout.closeDrawers();
-            }
-        });
     }
 
     private void initDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
-
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -121,7 +105,6 @@ public class ReaderActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -143,18 +126,29 @@ public class ReaderActivity extends ActionBarActivity
     }
 
     @Override
-    public Loader<List<Chapter>> onCreateLoader(int id, Bundle args) {
+    public Loader<List<Chapter>> onCreateLoader(int id, Bundle bundle) {
         return new ChapterLoader(this);
     }
 
     @Override
     public void onLoadFinished(Loader<List<Chapter>> loader, List<Chapter> data) {
         if (mAdapter == null) {
+            leftSliderData = data;
             mAdapter = new ArrayAdapter<>(ReaderActivity.this, R.layout.chapter_list_item, leftSliderData);
             mListView.setAdapter(mAdapter);
         } else {
             mListView.setAdapter(mAdapter);
         }
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String href = leftSliderData.get(position).getHref();
+                Toast.makeText(ReaderActivity.this, "Position is: " + position, Toast.LENGTH_SHORT).show();
+                mWebView.loadUrl("file:///android_asset/sample_book/" + href);
+                tvActionBarTitle.setText(leftSliderData.get(position).getChapterTitle());
+                drawerLayout.closeDrawers();
+            }
+        });
     }
 
     @Override

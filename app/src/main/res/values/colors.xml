@@ -4,9 +4,9 @@
     <color name="card_divider_gray">#e5e5e5</color>
 
     <!-- Material Colors -->
-    <color name="colorPrimary">#5677fc</color>
-    <color name="colorPrimaryDark">#455ede</color>
-    <color name="colorAccent">#ff4081</color>
+    <color name="colorPrimary">#00695C</color>
+    <color name="colorPrimaryDark">#004D40</color>
+    <color name="colorAccent">#64FFDA</color>
 
     <!-- Extra Colors -->
     <color name="material_main_bg">#FAFAFA</color>
