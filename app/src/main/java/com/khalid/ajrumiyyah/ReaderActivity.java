@@ -11,12 +11,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,10 +24,8 @@ import android.widget.Toast;
 import com.khalid.ajrumiyyah.adapter.ChapterLoader;
 import com.khalid.ajrumiyyah.model.Chapter;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -40,14 +36,11 @@ public class ReaderActivity extends ActionBarActivity
     private Toolbar toolbar;
     private TextView tvActionBarTitle;
     private TextView tvContent;
-    private DrawerLayout drawerLayout;
+    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mListView;
     private ArrayAdapter<Chapter> mAdapter;
-    private List<Chapter> leftSliderData;
-    StringBuilder mbuffer;
-    String stringContent;
-//    private WebView mWebView;
+    private List<Chapter> mDrawerData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,64 +57,29 @@ public class ReaderActivity extends ActionBarActivity
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
-    /*@Override
-    public void onBackPressed() {
-        if(mWebView.canGoBack()) {
-            mWebView.goBack();
-        } else {
-            super.onBackPressed();
+    public void setTextViewWithContent(String href){
+        try {
+            InputStream is = getAssets().open("book/" + href);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            String text = new String(buffer);
+            tvContent.setText(Html.fromHtml(text));
+            int textGravity;
+            textGravity = (href=="cover.html")? Gravity.CENTER : Gravity.NO_GRAVITY;
+            tvContent.setGravity(textGravity);
         }
-    }*/
+        catch (IOException e) {
+            tvContent.setText("Should not happen!");
+            throw new RuntimeException(e);
+        }
+    }
 
     private void initView() {
         tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         tvContent = (TextView) findViewById(R.id.tvContent);
-        tvContent.setText("Eat Me DEAD!");
-
-        /*try {
-            mbuffer = new StringBuilder();
-            InputStream isContent;
-            isContent = getAssets().open("book/cover.html");
-            BufferedReader in=
-                    new BufferedReader(new InputStreamReader(isContent, "UTF-8"));
-
-            while ((stringContent = in.readLine()) != null) {
-                mbuffer.append(stringContent);
-            }
-
-            tvContent.setText("Eat me Alive");
-            tvContent.setText(Html.fromHtml("<b>Bold</b> Typeface.<br><i>Italic</i> Typeface."));
-
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            tvContent.setText("Caught IOException initView tvContent.setText()!");
-        }*/
-
-        try {
-            InputStream is = getAssets().open("book/1.html");
-
-            // We guarantee that the available method returns the total
-            // size of the asset...  of course, this does mean that a single
-            // asset can't be more than 2 gigs.
-            int size = is.available();
-
-            // Read the entire asset into a local byte buffer.
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            // Convert the buffer into a string.
-            String text = new String(buffer);
-
-            // Finally stick the string into the text view.
-            tvContent.setText(Html.fromHtml(text));
-
-        } catch (IOException e) {
-            // Should never happen!
-            tvContent.setText("Should not happen!");
-            throw new RuntimeException(e);
-        }
+        setTextViewWithContent("cover.html");
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -131,12 +89,12 @@ public class ReaderActivity extends ActionBarActivity
         }
         mListView = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
     private void initDrawer() {
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -147,7 +105,7 @@ public class ReaderActivity extends ActionBarActivity
                 super.onDrawerOpened(drawerView);
             }
         };
-        drawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
     @Override
@@ -192,8 +150,8 @@ public class ReaderActivity extends ActionBarActivity
     @Override
     public void onLoadFinished(Loader<List<Chapter>> loader, List<Chapter> data) {
         if (mAdapter == null) {
-            leftSliderData = data;
-            mAdapter = new ArrayAdapter<>(ReaderActivity.this, R.layout.chapter_list_item, leftSliderData);
+            mDrawerData = data;
+            mAdapter = new ArrayAdapter<>(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
             mListView.setAdapter(mAdapter);
         } else {
             mListView.setAdapter(mAdapter);
@@ -201,11 +159,11 @@ public class ReaderActivity extends ActionBarActivity
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String href = leftSliderData.get(position).getHref();
+                String href = mDrawerData.get(position).getHref();
+                setTextViewWithContent(href);
                 Toast.makeText(ReaderActivity.this, "Position is: " + position, Toast.LENGTH_SHORT).show();
-//                mWebView.loadUrl("file:///android_asset/sample_book/" + href);
-                tvActionBarTitle.setText(leftSliderData.get(position).getChapterTitle());
-                drawerLayout.closeDrawers();
+                tvActionBarTitle.setText(mDrawerData.get(position).getChapterTitle());
+                mDrawerLayout.closeDrawers();
             }
         });
     }
