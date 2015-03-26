@@ -39,7 +39,7 @@ public class Book {
 
             for (int i = 0; i < tableOfContent.length(); i++) {
                 JSONObject jsonChapter = (JSONObject) tableOfContent.get(i);
-                String chapterNumber = jsonChapter.getString("");
+                String chapterNumber = jsonChapter.getString("chapter_number");
                 String chapterTitle = jsonChapter.getString("chapter_title");
                 String href = jsonChapter.getString("href");
 

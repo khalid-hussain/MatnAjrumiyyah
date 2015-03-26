@@ -160,9 +160,9 @@ public class ReaderActivity extends ActionBarActivity
         if (mAdapter == null) {
             mDrawerData = data;
             customAdapter = new ChapterAdapter(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
-            //mAdapter = new ArrayAdapter<>(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
-            //mListView.setAdapter(mAdapter);
             mListView.setAdapter(customAdapter);
+            //mAdapter = new ArrayAdapter<>(ReaderActivity.this, android.R.layout.simple_list_item_1, mDrawerData);
+            //mListView.setAdapter(mAdapter);
         } else {
             mListView.setAdapter(customAdapter);
         }

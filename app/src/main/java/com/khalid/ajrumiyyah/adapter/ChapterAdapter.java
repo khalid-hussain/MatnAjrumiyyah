@@ -41,6 +41,8 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
         if (p != null) {
             TextView tvChapterNumber = (TextView) v.findViewById(R.id.tvChapterNumber);
             TextView tvChapterTitle = (TextView) v.findViewById(R.id.tvChapterTitle);
+            tvChapterNumber.setText(p.getChapterNumber().toString());
+            tvChapterTitle.setText(p.getChapterTitle().toString());
 
             if (tvChapterNumber != null) {
                 tvChapterNumber.setText(p.getChapterNumber());
