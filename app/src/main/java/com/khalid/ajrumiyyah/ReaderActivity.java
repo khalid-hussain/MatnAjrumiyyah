@@ -55,6 +55,15 @@ public class ReaderActivity extends ActionBarActivity
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private void initView() {
         tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         mWebView = (WebView) findViewById(R.id.webView);
