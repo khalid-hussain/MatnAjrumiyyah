@@ -17,11 +17,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.khalid.ajrumiyyah.adapter.ChapterLoader;
+import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
+import com.khalid.ajrumiyyah.loader.ChapterLoader;
 import com.khalid.ajrumiyyah.model.Chapter;
 
 import java.io.IOException;
@@ -42,6 +44,7 @@ public class ReaderActivity extends ActionBarActivity
     private ListView mListView;
     private ArrayAdapter<Chapter> mAdapter;
     private List<Chapter> mDrawerData;
+    private ChapterAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,7 @@ public class ReaderActivity extends ActionBarActivity
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
-    public void setTextViewWithContent(String href){
+    public void setTextViewWithContent(String href) {
         try {
             InputStream is = getAssets().open("book/" + href);
             int size = is.available();
@@ -73,10 +76,9 @@ public class ReaderActivity extends ActionBarActivity
             String text = new String(buffer);
             tvContent.setText(Html.fromHtml(text));
             int textGravity;
-            textGravity = (href=="cover.html")? Gravity.CENTER : Gravity.NO_GRAVITY;
+            textGravity = (href == "cover.html") ? Gravity.CENTER : Gravity.NO_GRAVITY;
             tvContent.setGravity(textGravity);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             tvContent.setText("Should not happen!");
             throw new RuntimeException(e);
         }
@@ -157,17 +159,19 @@ public class ReaderActivity extends ActionBarActivity
     public void onLoadFinished(Loader<List<Chapter>> loader, List<Chapter> data) {
         if (mAdapter == null) {
             mDrawerData = data;
-            mAdapter = new ArrayAdapter<>(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
-            mListView.setAdapter(mAdapter);
+            customAdapter = new ChapterAdapter(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
+            //mAdapter = new ArrayAdapter<>(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
+            //mListView.setAdapter(mAdapter);
+            mListView.setAdapter(customAdapter);
         } else {
-            mListView.setAdapter(mAdapter);
+            mListView.setAdapter(customAdapter);
         }
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String href = mDrawerData.get(position).getHref();
                 setTextViewWithContent(href);
-                Toast.makeText(ReaderActivity.this, "Position is: " + (position+1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReaderActivity.this, "Position is: " + (position + 1), Toast.LENGTH_SHORT).show();
                 tvActionBarTitle.setText(mDrawerData.get(position).getChapterTitle());
                 mDrawerLayout.closeDrawers();
             }

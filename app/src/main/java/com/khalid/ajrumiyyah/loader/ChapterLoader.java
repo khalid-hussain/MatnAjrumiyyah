@@ -1,4 +1,4 @@
-package com.khalid.ajrumiyyah.adapter;
+package com.khalid.ajrumiyyah.loader;
 
 import com.khalid.ajrumiyyah.model.Book;
 import com.khalid.ajrumiyyah.model.Chapter;
