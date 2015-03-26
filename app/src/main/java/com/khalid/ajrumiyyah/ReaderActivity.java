@@ -27,6 +27,7 @@ import com.khalid.ajrumiyyah.model.Chapter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Locale;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -50,6 +51,11 @@ public class ReaderActivity extends ActionBarActivity
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
+        Locale locale = new Locale("ar");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getApplicationContext().getResources().updateConfiguration(config, null);
         setContentView(R.layout.activity_main);
 
         initView();
@@ -161,7 +167,7 @@ public class ReaderActivity extends ActionBarActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String href = mDrawerData.get(position).getHref();
                 setTextViewWithContent(href);
-                Toast.makeText(ReaderActivity.this, "Position is: " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReaderActivity.this, "Position is: " + (position+1), Toast.LENGTH_SHORT).show();
                 tvActionBarTitle.setText(mDrawerData.get(position).getChapterTitle());
                 mDrawerLayout.closeDrawers();
             }
