@@ -28,7 +28,7 @@ public class ChapterLoader extends AsyncTaskLoader<List<Chapter>> {
     public List<Chapter> loadInBackground() {
         List<Chapter> results;
         Book mBook = new Book();
-        mBook.setBook(getContext(), "sample_book");
+        mBook.setBook(getContext(), "book");
         results = mBook.getChapterList();
         return results;
     }
