@@ -19,6 +19,7 @@ public class PreferencesActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle(R.string.title_activity_preferences);
 
         // Display the fragment as the main content.
         getFragmentManager().beginTransaction()
