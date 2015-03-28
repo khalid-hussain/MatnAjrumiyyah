@@ -1,6 +1,7 @@
 package com.khalid.ajrumiyyah;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -87,6 +87,9 @@ public class ReaderActivity extends ActionBarActivity
     private void initView() {
         tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         tvContent = (TextView) findViewById(R.id.tvContent);
+        mListView = (ListView) findViewById(R.id.left_drawer);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         setTextViewWithContent("cover.html");
 
         if (toolbar != null) {
@@ -95,9 +98,7 @@ public class ReaderActivity extends ActionBarActivity
         if (Build.VERSION.SDK_INT >= 17) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
-        mListView = (ListView) findViewById(R.id.left_drawer);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
         mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
@@ -130,18 +131,21 @@ public class ReaderActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*int id = item.getItemId();
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+            Toast.makeText(this, "Clicked Settings", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, PreferencesActivity.class);
+            this.startActivity(intent);
         }
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
-        }*/
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -155,14 +159,13 @@ public class ReaderActivity extends ActionBarActivity
         return new ChapterLoader(this);
     }
 
+
     @Override
     public void onLoadFinished(Loader<List<Chapter>> loader, List<Chapter> data) {
         if (mAdapter == null) {
             mDrawerData = data;
             customAdapter = new ChapterAdapter(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
             mListView.setAdapter(customAdapter);
-            //mAdapter = new ArrayAdapter<>(ReaderActivity.this, android.R.layout.simple_list_item_1, mDrawerData);
-            //mListView.setAdapter(mAdapter);
         } else {
             mListView.setAdapter(customAdapter);
         }

@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">متن الآجرومية</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="action_about">عن</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+
     <string name="table_of_contents">المحتويات</string>
-    <string name="kalaam">أَنْوَاعُ اَلْكَلَامِ</string>
+    <string name="title_activity_preferences">الإعدادات</string>
 </resources>
