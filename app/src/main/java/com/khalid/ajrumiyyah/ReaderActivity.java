@@ -65,6 +65,17 @@ public class ReaderActivity extends ActionBarActivity
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
+    @Override
+    protected void onResume(){
+        pref_FontSize =
+                sharedPreferences.getInt(
+                        getResources().getString(R.string.pref_font_size),
+                        getResources().getInteger(R.integer.pref_font_size_default));
+        tvContent.setTextSize(pref_FontSize);
+        Toast.makeText(this, "onResume() called!", Toast.LENGTH_SHORT).show();
+        super.onResume();
+    }
+
     public void setTextViewWithContent(String href) {
         try {
             InputStream is = getAssets().open("book/" + href);
@@ -84,10 +95,6 @@ public class ReaderActivity extends ActionBarActivity
     }
 
     private void initView() {
-        pref_FontSize =
-                sharedPreferences.getInt(
-                        getResources().getString(R.string.pref_font_size),
-                        getResources().getInteger(R.integer.pref_font_size_default));
         tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         tvContent = (TextView) findViewById(R.id.tvContent);
         tvContent.setTextSize(pref_FontSize);
