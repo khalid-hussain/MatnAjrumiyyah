@@ -49,11 +49,11 @@ public class ReaderActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+        /*CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/ScheherazadeRegOT.ttf")
                         .setFontAttrId(R.attr.fontPath)
                         .build()
-        );
+        );*/
         Locale locale = new Locale("ar");
         Locale.setDefault(locale);
         Configuration config = new Configuration();
