@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_font">Fonts</string>
+
+    <string name="pref_font_size">pref_font_arabic_size</string>
+    <string name="pref_font_size_title">Arabic Font Size</string>
+    <string name="pref_font_size_summary">Font size of Arabic in dua\'</string>
+    <integer name="pref_font_size_default">24</integer>
+    <integer name="pref_font_size_max">30</integer>
+    <integer name="pref_font_size_min">20</integer>
+
+    <string name="pref_font_arabic_typeface">pref_font_arabic_typeface</string>
+    <string name="pref_font_directory">fonts</string>
+    <string name="pref_font_arabic_typeface_title">Arabic Font</string>
+    <string name="pref_font_arabic_typeface_summary">Font used for Arabic dua\'</string>
+    <string name="pref_font_arabic_typeface_default">fonts/Amiri.ttf</string>
+    <string name="pref_font_arabic_typeface_preview">بسم الله</string>
+</resources>
