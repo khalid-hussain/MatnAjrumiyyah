@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,6 +40,7 @@ public class ReaderActivity extends ActionBarActivity
     private Toolbar toolbar;
     private TextView tvActionBarTitle;
     private TextView tvContent;
+    private View mToolbarShadow;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mListView;
@@ -55,7 +57,7 @@ public class ReaderActivity extends ActionBarActivity
         Configuration config = new Configuration();
         config.locale = locale;
         getApplicationContext().getResources().updateConfiguration(config, null);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_reader);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -72,6 +74,7 @@ public class ReaderActivity extends ActionBarActivity
                         getResources().getString(R.string.pref_font_size),
                         getResources().getInteger(R.integer.pref_font_size_default));
         tvContent.setTextSize(pref_FontSize);
+
         Toast.makeText(this, "onResume() called!", Toast.LENGTH_SHORT).show();
         super.onResume();
     }
@@ -86,8 +89,11 @@ public class ReaderActivity extends ActionBarActivity
             String text = new String(buffer);
             tvContent.setText(Html.fromHtml(text));
             int textGravity;
+            int textAlignment;
             textGravity = (href == "cover.html") ? Gravity.CENTER : Gravity.NO_GRAVITY;
+            textAlignment = (href == "cover.html") ? View.TEXT_ALIGNMENT_CENTER : View.TEXT_ALIGNMENT_TEXT_START;
             tvContent.setGravity(textGravity);
+            tvContent.setTextAlignment(textAlignment);
         } catch (IOException e) {
             tvContent.setText("Should not happen!");
             throw new RuntimeException(e);
@@ -99,6 +105,8 @@ public class ReaderActivity extends ActionBarActivity
         tvContent = (TextView) findViewById(R.id.tvContent);
         tvContent.setTextSize(pref_FontSize);
 
+        mToolbarShadow = (View) findViewById(R.id.view_toolbar_shadow);
+
         mListView = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -109,6 +117,8 @@ public class ReaderActivity extends ActionBarActivity
         }
         if (Build.VERSION.SDK_INT >= 17) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            if (Build.VERSION.SDK_INT >=21)
+                mToolbarShadow.setVisibility(View.GONE);
         }
 
         // mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));

@@ -15,21 +15,31 @@
 
         <include layout="@layout/toolbar" />
 
-        <ScrollView
-            android:id="@+id/scrollView"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvContent"
+            <ScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:text="Default text from XML"
-                fontPath="fonts/ScheherazadeRegOT.ttf"
-                android:textIsSelectable="true"
-                android:textSize="26sp"></TextView>
-        </ScrollView>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:textAlignment="textStart"
+                    fontPath="fonts/ScheherazadeRegOT.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:text="Default text from XML"
+                    android:textIsSelectable="true"
+                    android:textSize="26sp"></TextView>
+            </ScrollView>
+            <View
+                android:id="@+id/view_toolbar_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/toolbar_shadow" />
+        </FrameLayout>
     </LinearLayout>
 
     <!-- navigation drawer -->
