@@ -120,8 +120,6 @@ public class ReaderActivity extends ActionBarActivity
             if (Build.VERSION.SDK_INT >=21)
                 mToolbarShadow.setVisibility(View.GONE);
         }
-
-        // mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
     private void initDrawer() {
