@@ -1,9 +1,12 @@
 package com.khalid.ajrumiyyah;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.DrawerLayout;
@@ -16,8 +19,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,6 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ReaderActivity extends ActionBarActivity
@@ -42,18 +42,14 @@ public class ReaderActivity extends ActionBarActivity
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mListView;
-    private ArrayAdapter<Chapter> mAdapter;
     private List<Chapter> mDrawerData;
-    private ChapterAdapter customAdapter;
+    private ChapterAdapter mAdapter;
+    private SharedPreferences sharedPreferences;
+    private int pref_FontSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                        .setDefaultFontPath("fonts/ScheherazadeRegOT.ttf")
-                        .setFontAttrId(R.attr.fontPath)
-                        .build()
-        );
         Locale locale = new Locale("ar");
         Locale.setDefault(locale);
         Configuration config = new Configuration();
@@ -61,9 +57,23 @@ public class ReaderActivity extends ActionBarActivity
         getApplicationContext().getResources().updateConfiguration(config, null);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         initView();
+        Toast.makeText(this, "" + pref_FontSize, Toast.LENGTH_SHORT).show();
         initDrawer();
         getSupportLoaderManager().initLoader(0, null, this);
+    }
+
+    @Override
+    protected void onResume(){
+        pref_FontSize =
+                sharedPreferences.getInt(
+                        getResources().getString(R.string.pref_font_size),
+                        getResources().getInteger(R.integer.pref_font_size_default));
+        tvContent.setTextSize(pref_FontSize);
+        Toast.makeText(this, "onResume() called!", Toast.LENGTH_SHORT).show();
+        super.onResume();
     }
 
     public void setTextViewWithContent(String href) {
@@ -87,6 +97,11 @@ public class ReaderActivity extends ActionBarActivity
     private void initView() {
         tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         tvContent = (TextView) findViewById(R.id.tvContent);
+        tvContent.setTextSize(pref_FontSize);
+
+        mListView = (ListView) findViewById(R.id.left_drawer);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         setTextViewWithContent("cover.html");
 
         if (toolbar != null) {
@@ -95,10 +110,8 @@ public class ReaderActivity extends ActionBarActivity
         if (Build.VERSION.SDK_INT >= 17) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
-        mListView = (ListView) findViewById(R.id.left_drawer);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
+        // mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
     private void initDrawer() {
@@ -130,18 +143,20 @@ public class ReaderActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*int id = item.getItemId();
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(this, PreferencesActivity.class);
+            this.startActivity(intent);
         }
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
-        }*/
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -155,16 +170,15 @@ public class ReaderActivity extends ActionBarActivity
         return new ChapterLoader(this);
     }
 
+
     @Override
     public void onLoadFinished(Loader<List<Chapter>> loader, List<Chapter> data) {
         if (mAdapter == null) {
             mDrawerData = data;
-            customAdapter = new ChapterAdapter(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
-            mListView.setAdapter(customAdapter);
-            //mAdapter = new ArrayAdapter<>(ReaderActivity.this, android.R.layout.simple_list_item_1, mDrawerData);
-            //mListView.setAdapter(mAdapter);
+            mAdapter = new ChapterAdapter(ReaderActivity.this, R.layout.chapter_list_item, mDrawerData);
+            mListView.setAdapter(mAdapter);
         } else {
-            mListView.setAdapter(customAdapter);
+            mListView.setAdapter(mAdapter);
         }
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

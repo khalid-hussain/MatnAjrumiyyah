@@ -26,6 +26,7 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="Default text from XML"
+                fontPath="fonts/ScheherazadeRegOT.ttf"
                 android:textIsSelectable="true"
                 android:textSize="26sp"></TextView>
         </ScrollView>

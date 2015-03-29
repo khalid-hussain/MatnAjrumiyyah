@@ -5,132 +5,132 @@
 	"isbn" : "1234567790",
 	"table_of_content" : [
 			{
-			  	"chapter_number" : "1",
+			  "chapter_number" : "١",
 				"chapter_title" : "أَنْوَاعُ اَلْكَلَامِ",
 				"href" : "1.html"
 			},
 			{
-			  	"chapter_number" : "2",
+			  "chapter_number" : "٢",
 				"chapter_title" : "بَابُ اَلْإِعْرَابِ",
 				"href" : "2.html"
 			},
 			{
-			  	"chapter_number" : "3",
+			  	"chapter_number" : "٣",
 				"chapter_title" : "بَابُ مَعْرِفَةِ عَلَامَاتِ اَلْإِعْرَابِ",
 				"href" : "3.html"
 			},
 			{
-			  "chapter_number" : "4",
+			  "chapter_number" : "٤",
 				"chapter_title" : "فَصْلٌ اَلْمُعْرَبَاتُ",
 				"href" : "4.html"
 			},
 			{
-			  	"chapter_number" : "5",
+			  "chapter_number" : "٥",
 				"chapter_title" : "بَابُ اَلْأَفْعَالِ",
 				"href" : "5.html"
 			},
 			{
-			  	"chapter_number" : "6",
+			  "chapter_number" : "٦",
 				"chapter_title" : "بَابُ مَرْفُوعَاتِ اَلْأَسْمَاءِ",
 				"href" : "6.html"
 			},
 			{
-			  	"chapter_number" : "7",
+			  "chapter_number" : "٧",
 				"chapter_title" : "بَابُ اَلْفَاعِلِ",
 				"href" : "7.html"
 			},
 			{
-			  	"chapter_number" : "8",
+			  "chapter_number" : "٨",
 				"chapter_title" : "بَابُ اَلْمَفْعُولِ اَلَّذِي لَمْ يُسَمَّ فَاعِلُهُ",
 				"href" : "8.html"
 			},
 			{
-			  	"chapter_number" : "9",
+			  "chapter_number" : "٩",
 				"chapter_title" : "بَابُ اَلْمُبْتَدَأِ وَالْخَبَرِ",
 				"href" : "9.html"
 			},
 			{
-			  	"chapter_number" : "10",
+			  "chapter_number" : "١٠",
 				"chapter_title" : "بَابُ اَلْعَوَامِلِ اَلدَّاخِلَةِ عَلَى اَلْمُبْتَدَأِ وَالْخَبَرِ",
 				"href" : "10.html"
 			},
 			{
-			  	"chapter_number" : "11",
+			  "chapter_number" : "١١",
 				"chapter_title" : "بَابُ اَلنَّعْتِ",
 				"href" : "11.html"
 			},
 			{
-			  	"chapter_number" : "12",
+			  "chapter_number" : "١٢",
 				"chapter_title" : "بَابُ اَلْعَطْفِ",
 				"href" : "12.html"
 			},
 			{
-			  	"chapter_number" : "13",
+			  "chapter_number" : "١٣",
 				"chapter_title" : "بَابُ اَلتَّوْكِيدِ",
 				"href" : "13.html"
 			},
 			{
-			  	"chapter_number" : "14",
+			  "chapter_number" : "١٤",
 				"chapter_title" : "بَابُ اَلْبَدَلِ",
 				"href" : "14.html"
 			},
 			{
-			  	"chapter_number" : "15",
+			  "chapter_number" : "١٥",
 				"chapter_title" : "بَابُ مَنْصُوبَاتِ اَلْأَسْمَاءِ",
 				"href" : "15.html"
 			},
 			{
-			  	"chapter_number" : "16",
+			  "chapter_number" : "١٦",
 				"chapter_title" : "بَابُ اَلْمَفْعُولِ بِهِ",
 				"href" : "16.html"
 			},
 			{
-			  	"chapter_number" : "17",
+			  "chapter_number" : "١٧",
 				"chapter_title" : "بَابُ اَلْمَصْدَرِ",
 				"href" : "17.html"
 			},
 			{
-			  	"chapter_number" : "18",
+			  	"chapter_number" : "١٨",
 				"chapter_title" : "بَابُ ظَرْفِ اَلزَّمَانِ وَظَرْفِ اَلْمَكَانِ",
 				"href" : "18.html"
 			},
 			{
-			  	"chapter_number" : "19",
+			  	"chapter_number" : "١٩",
 				"chapter_title" : "بَابُ اَلْحَالِ",
 				"href" : "19.html"
 			},
 			{
-			  	"chapter_number" : "20",
+			  	"chapter_number" : "٢٠",
 				"chapter_title" : "بَابُ اَلتَّمْيِيزِ",
 				"href" : "20.html"
 			},
 			{
-			  	"chapter_number" : "21",
+			  	"chapter_number" : "٢١",
 				"chapter_title" : "بَابُ اَلِاسْتِثْنَاءِ",
 				"href" : "21.html"
 			},
 			{
-			  	"chapter_number" : "22",
+			  	"chapter_number" : "٢٢",
 				"chapter_title" : "بَابُ لَا",
 				"href" : "22.html"
 			},
 			{
-			  	"chapter_number" : "23",
+			  	"chapter_number" : "٢٣",
 				"chapter_title" : "بَابُ اَلْمُنَادَى",
 				"href" : "23.html"
 			},
 			{
-			  	"chapter_number" : "24",
+			  	"chapter_number" : "٢٤",
 				"chapter_title" : "بَابُ اَلْمَفْعُولِ لِأَجْلِهِ",
 				"href" : "24.html"
 			},
 			{
-			  "chapter_number" : "25",
+			  "chapter_number" : "٢٥",
 				"chapter_title" : "بَابُ اَلْمَفْعُولِ مَعَهُ",
 				"href" : "25.html"
 			},
 			{
-			  	"chapter_number" : "26",
+			  	"chapter_number" : "٢٦",
 				"chapter_title" : "بَابُ اَلْمَخْفُوضَاتِ مِنْ اَلْأَسْمَاءِ",
 				"href" : "26.html"
 			}
