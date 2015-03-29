@@ -13,17 +13,18 @@ Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided int
 ==================
 1. Google Material Design
 	1. Good Navigation drawer presenting the topics in the book.
-	2. Navigation drawer should have something like a ViewPager which shows the contents and user bookmarks. For reference, please see [Tae Kim's Japanese Learning app](https://play.google.com/store/apps/details?id=com.alexisblaze.japanese_grammar).
-	3. A WebView which is performance compliant by loading in a separate thread instead of the UI thread.
-2. Clear Arabic Support. Current recommendation is [Scheherazade](http://openfontlibrary.org/en/font/scheherazade).
-3. Add a bookmarking feature.
-4. (Maybe) Add font size option.
-5. (Maybe) Add a search option.
+	1. Navigation drawer should have something like a ViewPager which shows the contents and user bookmarks. For reference, please see [Tae Kim's Japanese Learning app](https://play.google.com/store/apps/details?id=com.alexisblaze.japanese_grammar).	
+1. (Maybe) Add a search option.
+1. Add a bookmarking feature.
+1. ~~Clear Arabic Support.~~ DONE. Current recommendation is [Scheherazade](http://openfontlibrary.org/en/font/scheherazade).
+1. ~~(Maybe) Add font size option.~~ DONE.
+
 
 Libraries
 ==========
 - Android Support Library
 - [Calligraphy](https://github.com/chrisjenx/Calligraphy)
+- [VNTNumberPickerPreference](https://github.com/vanniktech/VNTNumberPickerPreference)
 
 Credits
 ==========
@@ -34,12 +35,14 @@ Credits
 
 To Do
 ======
+1. Design the navigation drawer better.
+1. Choose better highlight colors for key points in the text.
+1. Check layout on devices with different screen sizes.
+1. Update screenshots.
+1. Translate GitHub page sections into Arabic as well.
 1. ~~Type out the text into different chapter files. Organize the files and filenames.~~
-2. Design the navigation drawer better.
-3. ~~Ensure the WebView is loaded correctly, performance wise.~~
-4. Check layout on devices with different screen sizes.
-5. ~~App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.~~
-6. ~~Add the remaining chapters.~~
-7. Choose better highlight colors for key points in the text.
-8. ~~Ensure the custom WebView font can be seen on all phones (Samsung, Sony, etc..) and not only stock or close to stock roms (e.g. Cyanogenmod).~~
-9. ~~Add section highlights to all chapters.~~
+1. ~~Ensure the WebView is loaded correctly, performance wise.~~
+1. ~~App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.~~
+1. ~~Add the remaining chapters.~~
+1. ~~Ensure the custom WebView font can be seen on all phones (Samsung, Sony, etc..) and not only stock or close to stock roms (e.g. Cyanogenmod).~~
+1. ~~Add section highlights to all chapters.~~
