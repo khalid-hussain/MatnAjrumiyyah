@@ -28,11 +28,11 @@
                     android:textAlignment="textStart"
                     fontPath="fonts/ScheherazadeRegOT.ttf"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Default text from XML"
                     android:textIsSelectable="true"
-                    android:textSize="26sp"></TextView>
+                    android:textSize="26sp"/>
             </ScrollView>
             <View
                 android:id="@+id/view_toolbar_shadow"
