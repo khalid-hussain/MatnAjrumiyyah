@@ -1,5 +1,9 @@
 package com.khalid.ajrumiyyah;
 
+import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
+import com.khalid.ajrumiyyah.loader.ChapterLoader;
+import com.khalid.ajrumiyyah.model.Chapter;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,7 +18,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,12 +27,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
-import com.khalid.ajrumiyyah.loader.ChapterLoader;
-import com.khalid.ajrumiyyah.model.Chapter;
-
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.List;
 import java.util.Locale;
 
@@ -37,6 +39,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ReaderActivity extends ActionBarActivity
         implements LoaderManager.LoaderCallbacks<List<Chapter>> {
+    private static final String SI_LAST_CHAPTER = "SI_LAST_CHAPTER";
+
     private Toolbar toolbar;
     private TextView tvActionBarTitle;
     private TextView tvContent;
@@ -48,6 +52,7 @@ public class ReaderActivity extends ActionBarActivity
     private ChapterAdapter mAdapter;
     private SharedPreferences sharedPreferences;
     private int pref_FontSize;
+    private String mLastHref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,7 @@ public class ReaderActivity extends ActionBarActivity
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        initView();
+        initView(savedInstanceState);
         Toast.makeText(this, "" + pref_FontSize, Toast.LENGTH_SHORT).show();
         initDrawer();
         getSupportLoaderManager().initLoader(0, null, this);
@@ -79,38 +84,79 @@ public class ReaderActivity extends ActionBarActivity
         super.onResume();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(SI_LAST_CHAPTER, mLastHref);
+        super.onSaveInstanceState(outState);
+    }
+
     public void setTextViewWithContent(String href) {
+        InputStream is;
         try {
-            InputStream is = getAssets().open("book/" + href);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            String text = new String(buffer);
+            is = getAssets().open("book/" + href);
+            String text = readFromString(is);
             tvContent.setText(Html.fromHtml(text));
             int textGravity;
             int textAlignment;
-            textGravity = (href == "cover.html") ? Gravity.CENTER : Gravity.NO_GRAVITY;
-            textAlignment = (href == "cover.html") ? View.TEXT_ALIGNMENT_CENTER : View.TEXT_ALIGNMENT_TEXT_START;
+            textGravity = href.equals("cover.html") ? Gravity.CENTER : Gravity.NO_GRAVITY;
+            textAlignment = href.equals("cover.html") ? View.TEXT_ALIGNMENT_CENTER : View.TEXT_ALIGNMENT_TEXT_START;
             tvContent.setGravity(textGravity);
             tvContent.setTextAlignment(textAlignment);
+            mLastHref = href;
         } catch (IOException e) {
             tvContent.setText("Should not happen!");
             throw new RuntimeException(e);
         }
     }
 
-    private void initView() {
+    private void closeSilently(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                // ignore
+            }
+        }
+    }
+
+    // taken from http://stackoverflow.com/questions/309424
+    private String readFromString(InputStream is) throws IOException {
+        final char[] buffer = new char[1024];
+        final StringBuilder out = new StringBuilder();
+
+        Reader in = null;
+        try {
+            in = new InputStreamReader(is, "UTF-8");
+            while (true) {
+                int read = in.read(buffer, 0, buffer.length);
+                if (read < 0) {
+                    break;
+                }
+                out.append(buffer, 0, read);
+            }
+        } finally {
+            closeSilently(in);
+        }
+
+        return out.toString();
+    }
+
+    private void initView(Bundle savedInstanceState) {
         tvActionBarTitle = (TextView) findViewById(R.id.action_bar_title);
         tvContent = (TextView) findViewById(R.id.tvContent);
         tvContent.setTextSize(pref_FontSize);
 
-        mToolbarShadow = (View) findViewById(R.id.view_toolbar_shadow);
+        mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
 
         mListView = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        setTextViewWithContent("cover.html");
+
+        mLastHref = "cover.html";
+        if (savedInstanceState != null) {
+            mLastHref = savedInstanceState.getString(SI_LAST_CHAPTER, mLastHref);
+        }
+        setTextViewWithContent(mLastHref);
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
