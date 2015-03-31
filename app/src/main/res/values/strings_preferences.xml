@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_category_font">Fonts</string>
+    <string name="pref_category_font">الخطوط</string>
 
     <string name="pref_font_size">pref_font_arabic_size</string>
     <string name="pref_font_size_title">حجم الخط</string>

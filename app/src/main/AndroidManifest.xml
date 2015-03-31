@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.khalid.ajrumiyyah" >
+    package="com.khalid.ajrumiyyah">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".ReaderActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,14 @@
         </activity>
         <activity
             android:name=".PreferencesActivity"
-            android:label="@string/title_activity_preferences" >
+            android:label="@string/title_activity_preferences"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="com.khalid.ajrumiyyah.ReaderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.khalid.ajrumiyyah.ReaderActivity" />
         </activity>
     </application>
 

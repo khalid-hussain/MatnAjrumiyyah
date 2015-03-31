@@ -101,7 +101,9 @@ public class ReaderActivity extends ActionBarActivity
             textGravity = href.equals("cover.html") ? Gravity.CENTER : Gravity.NO_GRAVITY;
             textAlignment = href.equals("cover.html") ? View.TEXT_ALIGNMENT_CENTER : View.TEXT_ALIGNMENT_TEXT_START;
             tvContent.setGravity(textGravity);
-            tvContent.setTextAlignment(textAlignment);
+            if (Build.VERSION.SDK_INT >= 17) {
+                tvContent.setTextAlignment(textAlignment);
+            }
             mLastHref = href;
         } catch (IOException e) {
             tvContent.setText("Should not happen!");
@@ -206,6 +208,10 @@ public class ReaderActivity extends ActionBarActivity
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PreferencesActivity.class);
+            this.startActivity(intent);
+        }
+        else if (id == R.id.action_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
         }
         if (mDrawerToggle.onOptionsItemSelected(item)) {
