@@ -30,7 +30,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:minHeight="72dp"
-        android:padding="16dp"
+        android:layout_marginRight="10dp"
+        android:paddingRight="5dp"
         android:text="Sample Chapter Title"
         android:textSize="20sp"
         tools:ignore="MissingPrefix" />
