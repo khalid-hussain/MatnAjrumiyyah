@@ -29,6 +29,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.khalid.ajrumiyyah.ReaderActivity" />
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="7d916a731175b056ceea302c933059b591ca2646" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
