@@ -27,7 +27,7 @@
                     android:id="@+id/tvContent"
                     android:textAlignment="textStart"
                     android:gravity="start"
-                    fontPath="fonts/UthmanTN1B_Ver07.otf"
+                    fontPath="fonts/UthmanTN1_Ver07.otf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"

@@ -9,20 +9,20 @@
     <string name="title_activity_preferences">الإعدادات</string>
     <string name="title_activity_about">AboutActivity</string>
 
-    <string name="app_name_about"></string>
-    <string name="version_name"></string>
+    <string name="app_name_about">متن الآجرومية</string>
+    <string name="version_name">نسخة ٠.١.٠</string>
     <string name="about_us">
         <![CDATA[
-            This is a paragaph explaining what Matn Ajrumiyyah is.
-
+            الآجرّومية أو متن الآجرّومية أو المقدمة الآجرّومية كلها عنوان للكتاب الذي ألفه ابن آجرّوم، تحدث الكتاب عن أنواع الكلام وإعرابه. تعتبر من أهم متون النحو العربي ولاهمية الاجرومية البالغة فقد تصدى لشرحها جهابذة العلماء والنحاة قديما.<br/>
+			- ويكيبيديا
             <br/><br/>
             <big><b>المساهمين</b></big><br/>
             Ahmed El-Helw (<a href="http://twitter.com/ahmedre">@ahmedre</a>)<br/>
-            Hussaini Zulkifli (<a href="https://twitter.com/HussainiZul">@HussainiZul</a>)<br/>
+            (<a href="https://twitter.com/HussainiZul">@HussainiZul</a>)حسيني ذوالكفلي<br/>
             (<a href="https://www.github.com/khalid.hussain">GitHub</a>) محمد خالد حسين
             <br/><br/>
-            <big><b>OpenSource Projects</b></big><br/>
-            Calligraphy (https://github.com/chrisjenx/Calligraphy)<br/>
+            <big><b>البرامج مفتوحة المصدر</b></big><br/>
+            Calligraphy (<a href="https://github.com/chrisjenx/Calligraphy">GitHub</a>)<br/>
             VNTNumberPicker Preference (<a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub</a>)<br/>
         ]]>
     </string>
