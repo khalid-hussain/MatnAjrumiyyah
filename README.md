@@ -29,7 +29,7 @@ Libraries
 Credits
 ==========
 - [AlOloom Salafi Network](http://aloloom.net/vb/showthread.php?t=8833)
-- [Ahmed El-Helw](http://twitter.com/ahmedre) 
+- Ahmed El-Helw([@ahmedre](http://twitter.com/ahmedre))
 - Hussaini Zulkifli ([GitHub](https://github.com/the1375),[Twitter](https://twitter.com/HussainiZul))
 - [Load text from assets and place into TextView](http://www.java2s.com/Code/Android/UI/Programmaticallyloadtextfromanassetandplaceitintothetextview.htm)
 
