@@ -16,9 +16,6 @@ Matn Ajrumiyyah is a text which explains Arabic grammar. The text is divided int
 	1. Navigation drawer should have something like a ViewPager which shows the contents and user bookmarks. For reference, please see [Tae Kim's Japanese Learning app](https://play.google.com/store/apps/details?id=com.alexisblaze.japanese_grammar).	
 1. (Maybe) Add a search option.
 1. Add a bookmarking feature.
-1. ~~Clear Arabic Support.~~ DONE. Current recommendation is [Scheherazade](http://openfontlibrary.org/en/font/scheherazade).
-1. ~~(Maybe) Add font size option.~~ DONE.
-
 
 Libraries
 ==========
@@ -40,9 +37,3 @@ To Do
 1. Check layout on devices with different screen sizes.
 1. Update screenshots.
 1. Translate GitHub page sections into Arabic as well.
-1. ~~Type out the text into different chapter files. Organize the files and filenames.~~
-1. ~~Ensure the WebView is loaded correctly, performance wise.~~
-1. ~~App crashes on Android 4.4.4 (GenyMotion Emulator). I have no idea why.~~
-1. ~~Add the remaining chapters.~~
-1. ~~Ensure the custom WebView font can be seen on all phones (Samsung, Sony, etc..) and not only stock or close to stock roms (e.g. Cyanogenmod).~~
-1. ~~Add section highlights to all chapters.~~
