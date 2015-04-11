@@ -18,6 +18,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
@@ -25,16 +26,17 @@
 
                 <TextView
                     android:id="@+id/tvContent"
-                    android:textAlignment="textStart"
-                    android:gravity="start"
-                    fontPath="fonts/UthmanTN1Ver09.otf"
+                    fontPath="fonts/UthmanRegular.otf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="start"
                     android:padding="10dp"
                     android:text="Default text from XML"
+                    android:textAlignment="textStart"
                     android:textIsSelectable="true"
-                    android:textSize="26sp"/>
+                    android:textSize="26sp" />
             </ScrollView>
+
             <View
                 android:id="@+id/view_toolbar_shadow"
                 android:layout_width="match_parent"
@@ -53,7 +55,7 @@
         android:orientation="vertical">
 
         <TextView
-            fontPath="fonts/UthmanTN1BVer09.otf"
+            fontPath="fonts/UthmanBold.otf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"

@@ -70,7 +70,6 @@ public class ReaderActivity extends ActionBarActivity
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         initView(savedInstanceState);
-        //Toast.makeText(this, "" + pref_FontSize, Toast.LENGTH_SHORT).show();
         initDrawer();
         getSupportLoaderManager().initLoader(0, null, this);
     }
@@ -82,8 +81,6 @@ public class ReaderActivity extends ActionBarActivity
                         getResources().getString(R.string.pref_font_size),
                         getResources().getInteger(R.integer.pref_font_size_default));
         tvContent.setTextSize(pref_FontSize);
-
-        //Toast.makeText(this, "onResume() called!", Toast.LENGTH_SHORT).show();
         super.onResume();
     }
 
@@ -166,10 +163,11 @@ public class ReaderActivity extends ActionBarActivity
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-        if (Build.VERSION.SDK_INT >= 17) {
-            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-            if (Build.VERSION.SDK_INT >= 21)
-                mToolbarShadow.setVisibility(View.GONE);
+
+        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            mToolbarShadow.setVisibility(View.GONE);
         }
     }
 
@@ -243,7 +241,6 @@ public class ReaderActivity extends ActionBarActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String href = mDrawerData.get(position).getHref();
                 setTextViewWithContent(href);
-                //Toast.makeText(ReaderActivity.this, "Position is: " + (position + 1), Toast.LENGTH_SHORT).show();
                 mActionBarTitle = mDrawerData.get(position).getChapterTitle();
                 tvActionBarTitle.setText(mActionBarTitle);
                 mDrawerLayout.closeDrawers();
