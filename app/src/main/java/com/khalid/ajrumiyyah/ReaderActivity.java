@@ -1,10 +1,5 @@
 package com.khalid.ajrumiyyah;
 
-import com.crashlytics.android.Crashlytics;
-import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
-import com.khalid.ajrumiyyah.loader.ChapterLoader;
-import com.khalid.ajrumiyyah.model.Chapter;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,9 +21,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics;
+import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
+import com.khalid.ajrumiyyah.loader.ChapterLoader;
+import com.khalid.ajrumiyyah.model.Chapter;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,16 +35,17 @@ import java.io.Reader;
 import java.util.List;
 import java.util.Locale;
 
+import io.fabric.sdk.android.Fabric;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ReaderActivity extends ActionBarActivity
         implements LoaderManager.LoaderCallbacks<List<Chapter>> {
     private static final String SI_LAST_CHAPTER = "SI_LAST_CHAPTER";
+    private static final String SI_ACTION_BAR_TITLE = "SI_ACTION_BAR_TITLE";
 
     private Toolbar toolbar;
     private TextView tvActionBarTitle;
     private TextView tvContent;
-    private View mToolbarShadow;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mListView;
@@ -55,6 +54,7 @@ public class ReaderActivity extends ActionBarActivity
     private SharedPreferences sharedPreferences;
     private int pref_FontSize;
     private String mLastHref;
+    private String mActionBarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,26 +70,27 @@ public class ReaderActivity extends ActionBarActivity
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         initView(savedInstanceState);
-        Toast.makeText(this, "" + pref_FontSize, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "" + pref_FontSize, Toast.LENGTH_SHORT).show();
         initDrawer();
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         pref_FontSize =
                 sharedPreferences.getInt(
                         getResources().getString(R.string.pref_font_size),
                         getResources().getInteger(R.integer.pref_font_size_default));
         tvContent.setTextSize(pref_FontSize);
 
-        Toast.makeText(this, "onResume() called!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "onResume() called!", Toast.LENGTH_SHORT).show();
         super.onResume();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putString(SI_LAST_CHAPTER, mLastHref);
+        outState.putString(SI_ACTION_BAR_TITLE, mActionBarTitle);
         super.onSaveInstanceState(outState);
     }
 
@@ -103,10 +104,8 @@ public class ReaderActivity extends ActionBarActivity
             int textAlignment;
             textGravity = href.equals("cover.html") ? Gravity.CENTER : Gravity.NO_GRAVITY;
             textAlignment = href.equals("cover.html") ? View.TEXT_ALIGNMENT_CENTER : View.TEXT_ALIGNMENT_TEXT_START;
+            tvContent.setTextAlignment(textAlignment);
             tvContent.setGravity(textGravity);
-            if (Build.VERSION.SDK_INT >= 17) {
-                tvContent.setTextAlignment(textAlignment);
-            }
             mLastHref = href;
         } catch (IOException e) {
             tvContent.setText("Should not happen!");
@@ -151,7 +150,7 @@ public class ReaderActivity extends ActionBarActivity
         tvContent = (TextView) findViewById(R.id.tvContent);
         tvContent.setTextSize(pref_FontSize);
 
-        mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
+        View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
 
         mListView = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -160,6 +159,7 @@ public class ReaderActivity extends ActionBarActivity
         mLastHref = "cover.html";
         if (savedInstanceState != null) {
             mLastHref = savedInstanceState.getString(SI_LAST_CHAPTER, mLastHref);
+            tvActionBarTitle.setText(savedInstanceState.getString(SI_ACTION_BAR_TITLE, mActionBarTitle));
         }
         setTextViewWithContent(mLastHref);
 
@@ -168,7 +168,7 @@ public class ReaderActivity extends ActionBarActivity
         }
         if (Build.VERSION.SDK_INT >= 17) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-            if (Build.VERSION.SDK_INT >=21)
+            if (Build.VERSION.SDK_INT >= 21)
                 mToolbarShadow.setVisibility(View.GONE);
         }
     }
@@ -212,15 +212,11 @@ public class ReaderActivity extends ActionBarActivity
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PreferencesActivity.class);
             this.startActivity(intent);
-        }
-        else if (id == R.id.action_about) {
+        } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
         }
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -232,7 +228,6 @@ public class ReaderActivity extends ActionBarActivity
     public Loader<List<Chapter>> onCreateLoader(int id, Bundle bundle) {
         return new ChapterLoader(this);
     }
-
 
     @Override
     public void onLoadFinished(Loader<List<Chapter>> loader, List<Chapter> data) {
@@ -248,8 +243,9 @@ public class ReaderActivity extends ActionBarActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String href = mDrawerData.get(position).getHref();
                 setTextViewWithContent(href);
-                Toast.makeText(ReaderActivity.this, "Position is: " + (position + 1), Toast.LENGTH_SHORT).show();
-                tvActionBarTitle.setText(mDrawerData.get(position).getChapterTitle());
+                //Toast.makeText(ReaderActivity.this, "Position is: " + (position + 1), Toast.LENGTH_SHORT).show();
+                mActionBarTitle = mDrawerData.get(position).getChapterTitle();
+                tvActionBarTitle.setText(mActionBarTitle);
                 mDrawerLayout.closeDrawers();
             }
         });
