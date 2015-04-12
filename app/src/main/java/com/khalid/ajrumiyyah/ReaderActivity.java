@@ -1,5 +1,10 @@
 package com.khalid.ajrumiyyah;
 
+import com.crashlytics.android.Crashlytics;
+import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
+import com.khalid.ajrumiyyah.loader.ChapterLoader;
+import com.khalid.ajrumiyyah.model.Chapter;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,11 +26,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.crashlytics.android.Crashlytics;
-import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
-import com.khalid.ajrumiyyah.loader.ChapterLoader;
-import com.khalid.ajrumiyyah.model.Chapter;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -156,7 +156,8 @@ public class ReaderActivity extends ActionBarActivity
         mLastHref = "cover.html";
         if (savedInstanceState != null) {
             mLastHref = savedInstanceState.getString(SI_LAST_CHAPTER, mLastHref);
-            tvActionBarTitle.setText(savedInstanceState.getString(SI_ACTION_BAR_TITLE, mActionBarTitle));
+            mActionBarTitle = savedInstanceState.getString(SI_ACTION_BAR_TITLE);
+            tvActionBarTitle.setText(mActionBarTitle);
         }
         setTextViewWithContent(mLastHref);
 

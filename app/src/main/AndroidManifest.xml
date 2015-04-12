@@ -3,6 +3,9 @@
     package="com.khalid.ajrumiyyah">
     android:versionCode="1"
     android:versionName="@string/version_name">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +23,7 @@
         </activity>
         <activity
             android:name=".PreferencesActivity"
-            android:label="@string/title_activity_preferences"></activity>
+            android:label="@string/title_activity_preferences"/>
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
@@ -33,6 +36,4 @@
             android:name="io.fabric.ApiKey"
             android:value="7d916a731175b056ceea302c933059b591ca2646" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
