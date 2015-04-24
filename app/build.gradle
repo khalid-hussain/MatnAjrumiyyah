@@ -37,7 +37,7 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:22.1.0'
     compile 'com.vanniktech:vntnumberpickerpreference:0.1.0-SNAPSHOT'
     compile 'com.vanniktech:vntfontlistpreference:0.1.0-SNAPSHOT'
     compile 'uk.co.chrisjenx:calligraphy:2.0.2'
