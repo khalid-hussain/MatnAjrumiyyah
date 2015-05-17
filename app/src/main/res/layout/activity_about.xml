@@ -25,9 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:visibility="invisible"
-                android:background="@android:color/holo_orange_dark"/>
-                <!--android:src="@drawable/about_icon" /-->
+                android:src="@drawable/about_icon" />
 
             <TextView
                 android:id="@+id/tvAppName"
