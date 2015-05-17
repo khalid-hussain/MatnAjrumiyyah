@@ -1,5 +1,7 @@
-About the App
-==============
+Matn al-Ajurumiyyah
+====================
+![](https://raw.githubusercontent.com/khalid-hussain/MatnAjrumiyyah/master/app/src/main/res/drawable-xxhdpi/ic_launcher.png)
+
 This app is about providing [Matn Ajrumiyyah](http://en.wikipedia.org/wiki/Aj%C4%81r%C5%ABm%C4%ABya) in a digital form. There are a couple of other apps on the Play Store for this text but I was not satisfied with their quality and the lack of updates with Google Material Design guidelines. May Allah bless them.
 
 ![](https://raw.githubusercontent.com/khalid-hussain/MatnAjrumiyyah/master/screenshot1.png)
