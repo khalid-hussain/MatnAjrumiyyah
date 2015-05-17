@@ -1,6 +1,6 @@
 package com.khalid.ajrumiyyah;
 
-import com.crashlytics.android.Crashlytics;
+//import com.crashlytics.android.Crashlytics;
 import com.khalid.ajrumiyyah.adapter.ChapterAdapter;
 import com.khalid.ajrumiyyah.loader.ChapterLoader;
 import com.khalid.ajrumiyyah.model.Chapter;
@@ -35,7 +35,7 @@ import java.io.Reader;
 import java.util.List;
 import java.util.Locale;
 
-import io.fabric.sdk.android.Fabric;
+//import io.fabric.sdk.android.Fabric;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ReaderActivity extends ActionBarActivity
@@ -59,7 +59,7 @@ public class ReaderActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         Locale locale = new Locale("ar");
         Locale.setDefault(locale);
         Configuration config = new Configuration();
