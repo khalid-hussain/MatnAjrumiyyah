@@ -13,17 +13,29 @@
     <string name="version_name">نسخة ٠.١.٠</string>
     <string name="about_us">
         <![CDATA[
-            الآجرّومية أو متن الآجرّومية أو المقدمة الآجرّومية كلها عنوان للكتاب الذي ألفه ابن آجرّوم، تحدث الكتاب عن أنواع الكلام وإعرابه. تعتبر من أهم متون النحو العربي ولاهمية الاجرومية البالغة فقد تصدى لشرحها جهابذة العلماء والنحاة قديما.<br/>
-			- ويكيبيديا
-            <br/><br/>
-            <big><b>المساهمين</b></big><br/>
-            (<a href="http://twitter.com/ahmedre">@ahmedre</a>)أحمد الحلو<br/>
-            (<a href="https://twitter.com/HussainiZul">@HussainiZul</a>)حسيني ذوالكفلي<br/>
-            (<a href="https://www.github.com/khalid.hussain">GitHub</a>) محمد خالد حسين
-            <br/><br/>
-            <big><b>البرامج مفتوحة المصدر</b></big><br/>
-            Calligraphy (<a href="https://github.com/chrisjenx/Calligraphy">GitHub</a>)<br/>
-            VNTNumberPicker Preference (<a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub</a>)<br/>
-        ]]>
+	&quot;المقدمة الآجُرُّومِيَّة في مبادئ علم العربية&quot; أو ما يعرف بـ &quot;متن الآجُرُّومِيَّة&quot; هو مؤلف في اللغة العربية لصاحبه ابن آجروم، وهو أبو عبدالله محمد بن عبدالله بن داود الصنهاجي، فقيه ونحوي من صنهاجة من المغرب، له مؤلفات ومتون عدة، لكنه اشتهر بالآجُرُّومِيَّة الذي يعتبر من أهم مراجع اللغة العربية.
+<br><br>
+قسّم المؤلف رحمه الله الكتاب إلى أربعة فصول رئيسية وهي:<br>
+- الكلام و أنواعه .<br>
+- الإعراب.<br>
+- الأفعال: رفعا ونصبا وجزما.<br>
+- الأسماء: رفعا ونصبا وخفضا.<br>
+<br>
+وقد شرع كثير من العلماء و النحويين إلى شرح هذا المتن وتأصيله، لأهميته البالغة ويسره على الطالب المتعلم.
+<br><br>
+وفي هذا التطبيق - بفضل الله وتوفيقه - ، تيسّر عرض المتن كاملا مبوبًا بحيث يسهل على طالب العلم تصفح المتن واستذكاره والرجوع إليه .
+<br><br>
+نسأل الله أن يجعل هذا العمل خالصًا لوجهه، وأن يوفقنا لتطويره وتحسينه، مع كامل تقبلنا لأي تصويب أو ملاحظة.
+<br/><br/>
+<big><b>المساهمين</b></big><br/>
+(<a href="http://twitter.com/ahmedre">@ahmedre</a>)أحمد الحلو<br/>
+(<a href="https://twitter.com/HussainiZul">@HussainiZul</a>)حسيني ذوالكفلي<br/>
+(<a href="https://www.facebook.com/a.alhaaj">Facebook</a>)أحمد الحاج<br/>
+(<a href="https://www.github.com/khalid.hussain">GitHub</a>) محمد خالد حسين
+<br/><br/>
+<big><b>البرامج مفتوحة المصدر</b></big><br/>
+Calligraphy (<a href="https://github.com/chrisjenx/Calligraphy">GitHub</a>)<br/>
+VNTNumberPicker Preference (<a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub</a>)<br/>
+]]>
     </string>
 </resources>
